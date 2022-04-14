@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css')}}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>
+        Current Orders
+    </h1>
+    {% for order in orders %}
+    <div>
+        <p>
+            {{ order.name }} asked for {{ order.quantity }} copies of {{ order.title }} on {{ order.date }}
+            <a href="/orders/{{orders.index(order)}}">Click to see order</a>
+
+        </p>
+    </div>
+    {% endfor %}
+</body>
+</html>
